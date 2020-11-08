@@ -1,23 +1,23 @@
 import { Component } from 'solid-js'
 
-type ITabObject = {
+type ITabElement = {
 	title: string
 	badge?: string | boolean
 	active?: boolean
 	onClick?: any
 }
-type ITabsObject = {
-	tabs: ITabObject[]
+type ITabObjects = {
+	tabs: ITabElement[]
 	onClick?: any
 }
-type ITabsTitle = {
+type ITabTitles = {
 	tabs: string[]
 	active: number
 	onClick?: any
 }
-type ITabsProps = ITabsObject | ITabsTitle
+type ITabProps = ITabObjects | ITabTitles
 
-const Tabs: Component<ITabsProps> = (props) => {
+const Tab: Component<ITabProps> = (props) => {
 	let tabs: JSX.Element = null
 	if (props.tabs.length) {
 		if ("active" in props) {
@@ -41,4 +41,4 @@ const Tabs: Component<ITabsProps> = (props) => {
 		</ul>
 	)
 }
-export default Tabs
+export default Tab
