@@ -31,7 +31,8 @@ function App() {
 	return (
 		<>
 			<Navbar
-				left={<div>HEAD</div>}
+				style="padding: 5px"
+				left={<div>{state.inputValue || "HEAD"}</div>}
 				center={
 					<div class="input-group input-inline">
 						<input class="form-input" type="text" placeholder="search" />
@@ -39,17 +40,25 @@ function App() {
 					</div>
 				}
 				right={
-					<DropdownMenu label="Menu Test" alignRight>
+					<>
+						<DropdownMenu label="Menu One" alignRight>
 						<MenuItem>Really</MenuItem>
-						<MenuItem>Something</MenuItem>
-						<MenuItem>Divider...</MenuItem>
-						<Divider></Divider>
 						<MenuItem>Something else</MenuItem>
 						<MenuItem>And another</MenuItem>
-						<Divider content="Divider WITH TEXT"></Divider>
+							<Divider content="Divider"></Divider>
+							<MenuItem badge="2">Item with Badge</MenuItem>
+							<MenuItem>Item without badge</MenuItem>
+						</DropdownMenu>
+						<DropdownMenu label="Other" alignRight>
+							<Divider content="WITH TEXT"></Divider>
 						<MenuItem badge="2">Item with Badge</MenuItem>
+							<MenuItem>Item without badge</MenuItem>
+							<MenuItem badge="4">Another badge</MenuItem>
+							<Divider></Divider>
 						<MenuItem>Another Item</MenuItem>
+							<MenuItem>One More</MenuItem>
 					</DropdownMenu>
+					</>
 				}
 			/>
 			<div style="margin: 10px">
