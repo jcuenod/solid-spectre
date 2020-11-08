@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { createState, Component } from 'solid-js'
+import { createState } from 'solid-js'
 import Button from './components/Button/Button'
 import Avatar from './components/Avatar/Avatar'
 import DropdownMenu from './components/Menu/DropdownMenu'
@@ -9,6 +9,7 @@ import Divider from './components/Menu/Divider'
 import Navbar from './components/Navbar/Navbar';
 import Modal from './components/Modal/Modal';
 import Panel from './components/Panel/Panel';
+import Tabs from './components/Tabs/Tabs';
 
 type state = {
 	showModal: boolean
@@ -64,7 +65,8 @@ function App() {
 				<br />
 				<Button
 					size={state.buttonSize}
-					type="primary" badge={"" + state.counter}
+					type="primary"
+					badge={"" + state.counter}
 					onClick={() => {
 						console.log(state.counter)
 						setState({ counter: state.counter + 1 })
@@ -92,7 +94,12 @@ function App() {
 				</Modal>
 				<Panel
 					title="Fish Fingers"
-					navigation={<Button>testing</Button>}
+					navigation={<Tabs tabs={[
+						{ title: "Music", badge: "3" },
+						{ title: "Radio", active: true, badge: true },
+						{ title: "Playlists" },
+						{ title: "Connect" }
+					]} />}
 					body={<div>testing</div>}
 					footer={<Button>testing</Button>}
 				/>
