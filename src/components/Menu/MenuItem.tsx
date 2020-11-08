@@ -6,7 +6,7 @@ export type IMenuItemProps = {
     badge?: string
 }
 
-const MenuItem: Component<IMenuItemProps> = ({ iconName, badge, children }) =>
+export const MenuItem: Component<IMenuItemProps> = ({ iconName, badge, children }) =>
     <li class="menu-item">
         <a href="#">
             {iconName && [<i class={`icon icon-${iconName}`}></i>, " "]}
@@ -18,5 +18,3 @@ const MenuItem: Component<IMenuItemProps> = ({ iconName, badge, children }) =>
             </div>
         }
     </li>
-
-export default MenuItem

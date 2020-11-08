@@ -3,16 +3,20 @@ import { IDividerProps } from './Divider'
 import { IMenuItemProps } from './MenuItem'
 
 type IMenuElement = Component<IDividerProps> | Component<IMenuItemProps>
-type Props = {
+interface Props {
     label: string
     active?: true | false
-    children?: IMenuElement | IMenuElement[]
+    children?: IMenuElement[]
+    alignRight: boolean
 }
 
-const DropdownMenu: Component<Props> = ({ label, active, children }) => {
+const DropdownMenu: Component<Props> = ({ label, active, children, alignRight }) => {
     const dropdownClasses = ["dropdown"]
     if (active) {
         dropdownClasses.push("active")
+    }
+    if (alignRight) {
+        dropdownClasses.push("dropdown-right")
     }
     return <div class={dropdownClasses.join(" ")}>
         <div class="btn-group">

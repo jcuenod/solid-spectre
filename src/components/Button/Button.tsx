@@ -1,15 +1,14 @@
 import { Component } from 'solid-js'
 
-type Props = {
+interface IButtonProps {
 	badge?: true | string
 	size?: "small" | "normal" | "large"
 	leftIconName?: null | string
 	rightIconName?: null | string
-	style?: "normal" | "primary" | "link" | "success" | "error"
+	type?: "normal" | "primary" | "link" | "success" | "error"
 	children: any
-}
-type ChildProps = {
-	"data-badge"?: string
+	onClick?(e: Event): any
+	disabled?: boolean
 }
 
 const size_transformation = {
@@ -17,27 +16,28 @@ const size_transformation = {
 	"normal": "",
 	"large": "btn-lg"
 }
-const Button: Component<Props> = ({ badge, size, leftIconName, rightIconName, style, children }) => {
-	const childProps: ChildProps = {}
+
+const Button: Component<IButtonProps> = (props: IButtonProps) => {
 	const classList = ["btn"]
-	if (size) {
-		classList.push(size_transformation[size])
+	if (props.size) {
+		classList.push(size_transformation[props.size])
 	}
-	if (style && style !== "normal") {
-		classList.push("btn-" + style)
-	}
-	if (badge) {
-		classList.push("badge")
-		if (typeof badge === "string") {
-			childProps["data-badge"] = badge
-		}
+	if (props.type && props.type !== "normal") {
+		classList.push("btn-" + props.type)
 	}
 
-	return <button class={classList.join(" ")} {...childProps}>
-		{leftIconName && [<i class={`icon icon-${leftIconName}`} />, " "]}
-		{children && children}
-		{rightIconName && [" ", <i class={`icon icon-${rightIconName}`} />]}
-	</button>
+	return (
+		<button
+			class={classList.join(" ")}
+			data-badge={props.badge ? props.badge : false}
+			onClick={props.onClick}
+			disabled={props.disabled}
+		>
+			{props.leftIconName && [<i class={`icon icon-${props.leftIconName}`} />, " "]}
+			{props.children && props.children}
+			{props.rightIconName && [" ", <i class={`icon icon-${props.rightIconName}`} />]}
+		</button>
+	)
 }
 
 export default Button
