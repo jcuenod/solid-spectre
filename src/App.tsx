@@ -10,6 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import Modal from './components/Modal/Modal';
 import Panel from './components/Panel/Panel';
 import Tab from './components/Tab/Tab';
+import Tile from './components/Tile/Tile';
 
 type state = {
 	showModal: boolean
@@ -42,22 +43,22 @@ function App() {
 				right={
 					<>
 						<DropdownMenu label="Menu One" alignRight>
-						<MenuItem>Really</MenuItem>
-						<MenuItem>Something else</MenuItem>
-						<MenuItem>And another</MenuItem>
+							<MenuItem>Really</MenuItem>
+							<MenuItem>Something else</MenuItem>
+							<MenuItem>And another</MenuItem>
 							<Divider content="Divider"></Divider>
 							<MenuItem badge="2">Item with Badge</MenuItem>
 							<MenuItem>Item without badge</MenuItem>
 						</DropdownMenu>
 						<DropdownMenu label="Other" alignRight>
 							<Divider content="WITH TEXT"></Divider>
-						<MenuItem badge="2">Item with Badge</MenuItem>
+							<MenuItem badge="2">Item with Badge</MenuItem>
 							<MenuItem>Item without badge</MenuItem>
 							<MenuItem badge="4">Another badge</MenuItem>
 							<Divider></Divider>
-						<MenuItem>Another Item</MenuItem>
+							<MenuItem>Another Item</MenuItem>
 							<MenuItem>One More</MenuItem>
-					</DropdownMenu>
+						</DropdownMenu>
 					</>
 				}
 			/>
@@ -124,7 +125,7 @@ function App() {
 								<div style="margin-top: 1em">THE HULK</div>
 							</div>}
 							navigation={<Tab tabs={["Profile", "Files", "Tasks"]} active={0} />}
-							body={<div>testing</div>}
+							body={<Tile />}
 							footer={<Button>testing</Button>}
 						/>
 					</div>
