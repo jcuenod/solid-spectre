@@ -41,6 +41,4 @@ const Tabs: Component<ITabsProps> = (props) => {
 		</ul>
 	)
 }
-
-
 export default Tabs

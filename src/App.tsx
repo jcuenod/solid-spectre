@@ -9,7 +9,7 @@ import Divider from './components/Menu/Divider'
 import Navbar from './components/Navbar/Navbar';
 import Modal from './components/Modal/Modal';
 import Panel from './components/Panel/Panel';
-import Tabs from './components/Tabs/Tabs';
+import Tab from './components/Tab/Tab';
 
 type state = {
 	showModal: boolean
@@ -81,7 +81,6 @@ function App() {
 				<br />
 				<Avatar initial="JC" size="large" presence="online"></Avatar>
 				<br />
-				<span>s:{JSON.stringify(state.showModal)}</span>
 				<br />
 				<Modal
 					show={state.showModal}
@@ -92,17 +91,35 @@ function App() {
 						<span>{state.inputValue}</span>
 					</div>
 				</Modal>
-				<Panel
-					title="Fish Fingers"
-					navigation={<Tabs tabs={[
-						{ title: "Music", badge: "3" },
-						{ title: "Radio", active: true, badge: true },
-						{ title: "Playlists" },
-						{ title: "Connect" }
-					]} />}
-					body={<div>testing</div>}
-					footer={<Button>testing</Button>}
-				/>
+				<div class="columns">
+					<div class="column col-6 col-xs-12">
+						<Panel
+							title="Fish Fingers"
+							navigation={<Tab tabs={[
+								{ title: "Music", badge: "3" },
+								{ title: "Radio", active: true, badge: true },
+								{ title: "Playlists" },
+								{ title: "Connect" }
+							]} />}
+							body={<div>testing</div>}
+							footer={<Button>testing</Button>}
+						/>
+					</div>
+					<div class="column col-6 col-xs-12">
+						<Panel
+							header={<div style="text-align: center; margin: 2em">
+								<Avatar
+									src={"https://picturepan2.github.io/spectre/img/avatar-2.png"}
+									alt={"The hulk"}
+									size="large" />
+								<div style="margin-top: 1em">THE HULK</div>
+							</div>}
+							navigation={<Tab tabs={["Profile", "Files", "Tasks"]} active={0} />}
+							body={<div>testing</div>}
+							footer={<Button>testing</Button>}
+						/>
+					</div>
+				</div>
 			</div >
 		</>
 	)
