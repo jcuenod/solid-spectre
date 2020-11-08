@@ -25,6 +25,9 @@ const Button: Component<IButtonProps> = (props: IButtonProps) => {
 	if (props.type && props.type !== "normal") {
 		classList.push("btn-" + props.type)
 	}
+	if (props.badge) {
+		classList.push("badge")
+	}
 
 	return (
 		<button
