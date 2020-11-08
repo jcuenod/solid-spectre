@@ -3,13 +3,13 @@ import { IDividerProps } from './Divider'
 import { IMenuItemProps } from './MenuItem'
 
 interface IMenuElement {
-    children: IMenuItemProps | IDividerProps
+	children: IMenuItemProps | IDividerProps
 }
 interface Props {
-    children: IMenuElement[]
+	children: IMenuElement[]
 }
 
 const Menu: Component<Props> = ({ children }) =>
-    <ul class="menu">{children}</ul>
+	<ul class="menu">{children}</ul>
 
 export default Menu

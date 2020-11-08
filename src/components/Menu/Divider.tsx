@@ -1,10 +1,10 @@
 import { Component } from 'solid-js'
 
 export type IDividerProps = {
-    content?: string
+	content?: string
 }
 
 const Divider: Component<IDividerProps> = ({ content }) =>
-    <li class="divider" data-content={content} />
+	<li class="divider" data-content={content} />
 
 export default Divider
